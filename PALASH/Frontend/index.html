@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PALASH+ | Mother-Tongue Learning Assistant</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ROLE SELECTION
+===================================================== -->
+
+<div id="roleSelection" class="role-screen">
+
+    <div class="role-container">
+
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <div>
+                <h1>PALASH<span>+</span></h1>
+
+                <p>
+                    AI-Powered Mother-Tongue Learning Assistant
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="welcome">
+
+            <span class="small-label">
+                SMART EDUCATION • JHARKHAND
+            </span>
+
+            <h2>
+                Welcome to PALASH+
+            </h2>
+
+            <p>
+                Bridging Hindi-medium teaching with
+                Santhali-speaking learners.
+            </p>
+
+        </div>
+
+
+        <div class="role-grid">
+
+
+            <!-- TEACHER -->
+
+            <div class="role-card teacher-card"
+                 onclick="selectRole('teacher')">
+
+                <div class="role-icon">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+
+                <h3>Teacher</h3>
+
+                <p>
+                    Translate lessons, use voice assistance,
+                    create learning materials and monitor students.
+                </p>
+
+                <button>
+                    Continue as Teacher
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- STUDENT -->
+
+            <div class="role-card student-card"
+                 onclick="selectRole('student')">
+
+                <div class="role-icon">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+                <h3>Student</h3>
+
+                <p>
+                    Learn lessons in Santhali through audio,
+                    visuals, practice activities and flashcards.
+                </p>
+
+                <button>
+                    Continue as Student
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- ADMIN -->
+
+            <div class="role-card admin-card"
+                 onclick="selectRole('admin')">
+
+                <div class="role-icon">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+
+                <h3>Admin</h3>
+
+                <p>
+                    Manage schools, teachers, students,
+                    content, validation and analytics.
+                </p>
+
+                <button>
+                    Continue as Admin
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="role-features">
+
+            <span>
+                <i class="fa-solid fa-wifi"></i>
+                Offline First
+            </span>
+
+            <span>
+                <i class="fa-solid fa-language"></i>
+                Hindi → Santhali
+            </span>
+
+            <span>
+                <i class="fa-solid fa-microphone"></i>
+                Voice AI
+            </span>
+
+            <span>
+                <i class="fa-solid fa-brain"></i>
+                AI Assisted
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div id="app" class="app hidden">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="mini-logo">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <div>
+                <h2>PALASH<span>+</span></h2>
+
+                <small>
+                    Mother-Tongue AI
+                </small>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a class="nav-item active"
+               onclick="showSection('dashboard', this)">
+
+                <i class="fa-solid fa-grid-2"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('translation', this)">
+
+                <i class="fa-solid fa-language"></i>
+
+                Hindi → Santhali
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('voice', this)">
+
+                <i class="fa-solid fa-microphone"></i>
+
+                Voice Classroom
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('lessons', this)">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                Lessons
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('worksheets', this)">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                Worksheets
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('flashcards', this)">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                Flashcards
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('progress', this)">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Learning Progress
+
+            </a>
+
+
+            <a class="nav-item"
+               onclick="showSection('validation', this)">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Community Validation
+
+            </a>
+
+
+            <div class="nav-title">
+                EXISTING ECOSYSTEM
+            </div>
+
+
+            <a class="nav-item"
+               onclick="showSection('ecosystem', this)">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                DIKSHA & J-Guruji
+
+            </a>
+
+        </nav>
+
+
+        <div class="offline-box">
+
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+
+            <div>
+
+                <strong>Offline Ready</strong>
+
+                <small>
+                    Content available locally
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="page-label">
+                    SMART EDUCATION
+                </span>
+
+                <h2 id="pageTitle">
+                    Dashboard
+                </h2>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <div class="connection">
+
+                    <span class="online-dot"></span>
+
+                    Offline Ready
+
+                </div>
+
+
+                <div class="notification">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                </div>
+
+
+                <div class="avatar"
+                     id="avatar">
+
+                    T
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             TEACHER DASHBOARD
+        ================================================== -->
+
+        <section id="dashboard"
+                 class="section active-section">
+
+
+            <div class="hero">
+
+                <div>
+
+                    <span class="hero-tag">
+                        AI-POWERED CLASSROOM
+                    </span>
+
+                    <h1>
+                        Learn beyond<br>
+                        <span>language barriers.</span>
+                    </h1>
+
+                    <p>
+                        PALASH+ helps teachers deliver
+                        Hindi curriculum in Santhali with
+                        translation, voice and personalised learning.
+                    </p>
+
+                    <button class="primary-btn"
+                            onclick="showSectionById('translation')">
+
+                        <i class="fa-solid fa-language"></i>
+
+                        Translate a Lesson
+
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="language-box hindi-box">
+                        <span>HINDI</span>
+                        <strong>नमस्ते</strong>
+                    </div>
+
+                    <div class="arrow-circle">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="language-box santhali-box">
+                        <span>SANTHALI</span>
+                        <strong>ᱡᱚᱦᱟᱨ</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>24</strong>
+
+                        <span>
+                            Lessons translated
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>32</strong>
+
+                        <span>
+                            Students
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>18</strong>
+
+                        <span>
+                            Worksheets
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>82%</strong>
+
+                        <span>
+                            Avg. learning progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FEATURE GRID -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>PALASH+ TOOLS</span>
+
+                    <h3>
+                        Classroom Intelligence
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('translation')">
+
+                    <div class="feature-icon purple-bg">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+
+                    <h3>
+                        Hindi → Santhali
+                    </h3>
+
+                    <p>
+                        Translate curriculum content
+                        into Santhali.
+                    </p>
+
+                    <span class="feature-link">
+                        Open Translator →
+                    </span>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('voice')">
+
+                    <div class="feature-icon green-bg">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+
+                    <h3>
+                        Voice Classroom
+                    </h3>
+
+                    <p>
+                        Speech-to-text and text-to-speech
+                        for classroom interaction.
+                    </p>
+
+                    <span class="feature-link">
+                        Start Voice →
+                    </span>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('worksheets')">
+
+                    <div class="feature-icon orange-bg">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <h3>
+                        AI Worksheets
+                    </h3>
+
+                    <p>
+                        Generate bilingual worksheets
+                        aligned with learning outcomes.
+                    </p>
+
+                    <span class="feature-link">
+                        Create Worksheet →
+                    </span>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('flashcards')">
+
+                    <div class="feature-icon blue-bg">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+
+                    <h3>
+                        Visual Flashcards
+                    </h3>
+
+                    <p>
+                        Learn vocabulary using
+                        images and Santhali audio.
+                    </p>
+
+                    <span class="feature-link">
+                        Open Flashcards →
+                    </span>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('progress')">
+
+                    <div class="feature-icon pink-bg">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                    <h3>
+                        Learning Gap Analysis
+                    </h3>
+
+                    <p>
+                        Identify weak areas and
+                        recommend remedial practice.
+                    </p>
+
+                    <span class="feature-link">
+                        View Analysis →
+                    </span>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showSectionById('validation')">
+
+                    <div class="feature-icon yellow-bg">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <h3>
+                        Community Validation
+                    </h3>
+
+                    <p>
+                        Teachers and native speakers
+                        validate AI translations.
+                    </p>
+
+                    <span class="feature-link">
+                        Validate Content →
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRANSLATION
+        ================================================== -->
+
+        <section id="translation"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>AI LANGUAGE BRIDGE</span>
+
+                <h2>
+                    Hindi → Santhali Translation
+                </h2>
+
+                <p>
+                    Convert classroom content into
+                    mother-tongue learning material.
+                </p>
+
+            </div>
+
+
+            <div class="translation-panel">
+
+                <div class="language-header">
+
+                    <span>
+                        Hindi
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <span class="santhali-text">
+                        Santhali
+                    </span>
+
+                </div>
+
+
+                <div class="translation-columns">
+
+                    <div class="text-area">
+
+                        <label>
+                            HINDI CONTENT
+                        </label>
+
+                        <textarea id="hindiInput"
+                                  placeholder="Enter Hindi lesson content here...">बच्चा किताब पढ़ रहा है।</textarea>
+
+                    </div>
+
+
+                    <div class="text-area">
+
+                        <label>
+                            SANTHALI OUTPUT
+                        </label>
+
+                        <div id="santhaliOutput"
+                             class="output-box">
+
+                            ᱪᱮᱫ ᱠᱚ ᱯᱩᱛᱷᱤ ᱯᱟᱲᱦᱟᱣ ᱠᱟᱱᱟ।
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="translation-actions">
+
+                    <button class="secondary-btn"
+                            onclick="clearTranslation()">
+
+                        Clear
+
+                    </button>
+
+                    <button class="primary-btn"
+                            onclick="translateDemo()">
+
+                        <i class="fa-solid fa-language"></i>
+
+                        Translate
+
+                    </button>
+
+                    <button class="voice-btn"
+                            onclick="speakSanthali()">
+
+                        <i class="fa-solid fa-volume-high"></i>
+
+                        Listen
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-strip">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <strong>
+                        Community-validated translation
+                    </strong>
+
+                    <p>
+                        AI-generated translations can be
+                        reviewed by teachers and native speakers
+                        before classroom use.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VOICE
+        ================================================== -->
+
+        <section id="voice"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>VOICE AI</span>
+
+                <h2>
+                    Voice Classroom
+                </h2>
+
+                <p>
+                    Help teachers and students communicate
+                    across the language barrier.
+                </p>
+
+            </div>
+
+
+            <div class="voice-container">
+
+                <div class="voice-card">
+
+                    <div class="mic-circle">
+
+                        <i class="fa-solid fa-microphone"></i>
+
+                    </div>
+
+                    <h3>
+                        Speak in Hindi
+                    </h3>
+
+                    <p>
+                        PALASH+ converts speech into
+                        text and prepares the Santhali response.
+                    </p>
+
+                    <button class="primary-btn"
+                            onclick="startVoice()">
+
+                        <i class="fa-solid fa-microphone"></i>
+
+                        Start Listening
+
+                    </button>
+
+                    <div id="voiceStatus"
+                         class="voice-status">
+
+                        Ready for classroom interaction
+
+                    </div>
+
+                </div>
+
+
+                <div class="voice-flow">
+
+                    <div>
+                        <i class="fa-solid fa-microphone"></i>
+                        <span>Speech</span>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <div>
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>STT</span>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <div>
+                        <i class="fa-solid fa-language"></i>
+                        <span>Translation</span>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <div>
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span>TTS</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LESSONS
+        ================================================== -->
+
+        <section id="lessons"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>LEARNING CONTENT</span>
+
+                <h2>
+                    Offline Lessons
+                </h2>
+
+                <p>
+                    Curriculum-aligned lessons available
+                    even with limited connectivity.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-grid">
+
+
+                <div class="lesson-card">
+
+                    <div class="lesson-image">
+                        🔢
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <span>
+                            MATHEMATICS • GRADE 2
+                        </span>
+
+                        <h3>
+                            Numbers Around Us
+                        </h3>
+
+                        <p>
+                            Hindi lesson with Santhali
+                            explanation and audio.
+                        </p>
+
+                        <div class="lesson-bottom">
+
+                            <small>
+                                <i class="fa-solid fa-download"></i>
+                                Available offline
+                            </small>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="lesson-card">
+
+                    <div class="lesson-image">
+                        🌱
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <span>
+                            EVS • GRADE 2
+                        </span>
+
+                        <h3>
+                            Plants Around Us
+                        </h3>
+
+                        <p>
+                            Visual lesson with bilingual
+                            learning support.
+                        </p>
+
+                        <div class="lesson-bottom">
+
+                            <small>
+                                <i class="fa-solid fa-download"></i>
+                                Available offline
+                            </small>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="lesson-card">
+
+                    <div class="lesson-image">
+                        📖
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <span>
+                            LANGUAGE • GRADE 1
+                        </span>
+
+                        <h3>
+                            Story Time
+                        </h3>
+
+                        <p>
+                            Listen to stories in Santhali
+                            with visual support.
+                        </p>
+
+                        <div class="lesson-bottom">
+
+                            <small>
+                                <i class="fa-solid fa-download"></i>
+                                Available offline
+                            </small>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WORKSHEETS
+        ================================================== -->
+
+        <section id="worksheets"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>AI CONTENT GENERATION</span>
+
+                <h2>
+                    Bilingual Worksheet Generator
+                </h2>
+
+                <p>
+                    Generate simple learning activities
+                    from curriculum content.
+                </p>
+
+            </div>
+
+
+            <div class="generator-card">
+
+                <div class="form-group">
+
+                    <label>
+                        Lesson Topic
+                    </label>
+
+                    <input id="worksheetTopic"
+                           placeholder="Example: Numbers 1 to 10">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Grade
+                        </label>
+
+                        <select>
+
+                            <option>Grade 1</option>
+                            <option selected>Grade 2</option>
+                            <option>Grade 3</option>
+                            <option>Grade 4</option>
+                            <option>Grade 5</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Activity Type
+                        </label>
+
+                        <select>
+
+                            <option>Fill in the blanks</option>
+                            <option>Match the following</option>
+                            <option>Multiple Choice</option>
+                            <option>Picture Based</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button class="primary-btn"
+                        onclick="generateWorksheet()">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Generate Worksheet
+
+                </button>
+
+
+                <div id="worksheetResult"
+                     class="generated-result">
+
+                    Your generated worksheet will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FLASHCARDS
+        ================================================== -->
+
+        <section id="flashcards"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>VISUAL LEARNING</span>
+
+                <h2>
+                    Santhali Flashcards
+                </h2>
+
+                <p>
+                    Learn concepts through visual,
+                    bilingual and audio-supported cards.
+                </p>
+
+            </div>
+
+
+            <div class="flashcard-area">
+
+                <button class="round-btn"
+                        onclick="previousCard()">
+
+                    <i class="fa-solid fa-chevron-left"></i>
+
+                </button>
+
+
+                <div class="flashcard"
+                     onclick="flipCard()">
+
+                    <div id="flashcardFront">
+
+                        <div class="flash-emoji">
+                            🌳
+                        </div>
+
+                        <span>
+                            HINDI
+                        </span>
+
+                        <h2>
+                            पेड़
+                        </h2>
+
+                        <small>
+                            Tap to see Santhali
+                        </small>
+
+                    </div>
+
+
+                    <div id="flashcardBack"
+                         class="hidden-card">
+
+                        <span>
+                            SANTHALI
+                        </span>
+
+                        <h2>
+                            ᱫᱟᱨᱮ
+                        </h2>
+
+                        <button onclick="event.stopPropagation(); speakSanthali()">
+
+                            <i class="fa-solid fa-volume-high"></i>
+
+                            Listen
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button class="round-btn"
+                        onclick="nextCard()">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </button>
+
+            </div>
+
+
+            <div class="card-counter">
+
+                Card <strong id="cardNumber">1</strong> of 5
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <section id="progress"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>AI LEARNING ANALYTICS</span>
+
+                <h2>
+                    Learning Gap Analysis
+                </h2>
+
+                <p>
+                    Identify weak areas and recommend
+                    personalised remedial practice.
+                </p>
+
+            </div>
+
+
+            <div class="progress-grid">
+
+
+                <div class="progress-card">
+
+                    <div class="progress-top">
+
+                        <div>
+
+                            <span>
+                                LANGUAGE
+                            </span>
+
+                            <h3>
+                                Vocabulary
+                            </h3>
+
+                        </div>
+
+                        <strong>
+                            92%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div style="width:92%"></div>
+
+                    </div>
+
+                    <small>
+                        Strong
+                    </small>
+
+                </div>
+
+
+                <div class="progress-card warning">
+
+                    <div class="progress-top">
+
+                        <div>
+
+                            <span>
+                                MATHEMATICS
+                            </span>
+
+                            <h3>
+                                Number Recognition
+                            </h3>
+
+                        </div>
+
+                        <strong>
+                            61%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div style="width:61%"></div>
+
+                    </div>
+
+                    <small>
+                        Needs practice
+                    </small>
+
+                </div>
+
+
+                <div class="progress-card danger">
+
+                    <div class="progress-top">
+
+                        <div>
+
+                            <span>
+                                LANGUAGE
+                            </span>
+
+                            <h3>
+                                Word Reading
+                            </h3>
+
+                        </div>
+
+                        <strong>
+                            48%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div style="width:48%"></div>
+
+                    </div>
+
+                    <small>
+                        Remedial support recommended
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="recommendation">
+
+                <div class="recommendation-icon">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        AI Recommendation
+                    </strong>
+
+                    <p>
+                        Provide 10 minutes of Santhali
+                        vocabulary practice followed by
+                        visual word-recognition activities.
+                    </p>
+
+                </div>
+
+                <button class="primary-btn">
+                    Start Practice
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMUNITY VALIDATION
+        ================================================== -->
+
+        <section id="validation"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>HUMAN + AI</span>
+
+                <h2>
+                    Community Validation
+                </h2>
+
+                <p>
+                    Native speakers and teachers can validate
+                    AI-generated Santhali translations.
+                </p>
+
+            </div>
+
+
+            <div class="validation-card">
+
+                <div class="validation-language">
+
+                    <span>
+                        HINDI
+                    </span>
+
+                    <p>
+                        बच्चा किताब पढ़ रहा है।
+                    </p>
+
+                </div>
+
+
+                <div class="validation-arrow">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+
+                <div class="validation-language santhali">
+
+                    <span>
+                        AI GENERATED SANTHALI
+                    </span>
+
+                    <p>
+                        ᱪᱮᱫ ᱠᱚ ᱯᱩᱛᱷᱤ ᱯᱟᱲᱦᱟᱣ ᱠᱟᱱᱟ।
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="validation-actions">
+
+                <button class="approve-btn"
+                        onclick="validateTranslation('approved')">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Correct Translation
+
+                </button>
+
+
+                <button class="edit-btn"
+                        onclick="validateTranslation('edited')">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Suggest Correction
+
+                </button>
+
+            </div>
+
+
+            <div id="validationStatus"
+                 class="validation-status">
+
+                Pending community validation
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DIKSHA + J-GURUJI
+        ================================================== -->
+
+        <section id="ecosystem"
+                 class="section">
+
+
+            <div class="section-intro">
+
+                <span>EXISTING ECOSYSTEM</span>
+
+                <h2>
+                    DIKSHA & J-Guruji
+                </h2>
+
+                <p>
+                    PALASH+ is designed as a complementary
+                    mother-tongue AI layer, not a replacement.
+                </p>
+
+            </div>
+
+
+            <div class="ecosystem-grid">
+
+
+                <!-- DIKSHA -->
+
+                <div class="ecosystem-card">
+
+                    <div class="ecosystem-logo diksha-logo">
+                        D
+                    </div>
+
+                    <h3>
+                        DIKSHA
+                    </h3>
+
+                    <p>
+                        National digital education platform
+                        providing curriculum resources,
+                        courses, assessments and offline access.
+                    </p>
+
+
+                    <div class="existing-features">
+
+                        <span>
+                            ✓ Digital content
+                        </span>
+
+                        <span>
+                            ✓ Offline learning
+                        </span>
+
+                        <span>
+                            ✓ Assessments
+                        </span>
+
+                        <span>
+                            ✓ Teacher resources
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- J GURUJI -->
+
+                <div class="ecosystem-card">
+
+                    <div class="ecosystem-logo guruji-logo">
+                        J
+                    </div>
+
+                    <h3>
+                        J-Guruji
+                    </h3>
+
+                    <p>
+                        Jharkhand's educational platform
+                        providing curriculum-aligned digital
+                        content and personalised learning.
+                    </p>
+
+
+                    <div class="existing-features">
+
+                        <span>
+                            ✓ Curriculum aligned
+                        </span>
+
+                        <span>
+                            ✓ Digital resources
+                        </span>
+
+                        <span>
+                            ✓ Personalised learning
+                        </span>
+
+                        <span>
+                            ✓ Live / recorded classes
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GAP -->
+
+            <div class="gap-section">
+
+                <div class="gap-title">
+
+                    <span>
+                        PALASH+ DIFFERENTIATOR
+                    </span>
+
+                    <h3>
+                        Mother-Tongue AI Layer
+                    </h3>
+
+                </div>
+
+
+                <div class="gap-grid">
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-language"></i>
+
+                        <div>
+
+                            <strong>
+                                Hindi → Santhali
+                            </strong>
+
+                            <p>
+                                Curriculum content translated
+                                into the learner's mother tongue.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-microphone"></i>
+
+                        <div>
+
+                            <strong>
+                                Real-Time Voice Bridge
+                            </strong>
+
+                            <p>
+                                STT + translation + TTS
+                                for classroom communication.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-people-group"></i>
+
+                        <div>
+
+                            <strong>
+                                Community Validation
+                            </strong>
+
+                            <p>
+                                Native speakers validate
+                                low-resource language output.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        <div>
+
+                            <strong>
+                                Learning Gap Analysis
+                            </strong>
+
+                            <p>
+                                Assessment results drive
+                                personalised remedial practice.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        <div>
+
+                            <strong>
+                                Bilingual Content Generation
+                            </strong>
+
+                            <p>
+                                Worksheets, flashcards and
+                                activities generated for teachers.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gap-item">
+
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+
+                        <div>
+
+                            <strong>
+                                Offline-First Santhali Learning
+                            </strong>
+
+                            <p>
+                                Essential translated content
+                                remains available without internet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div>
+                <strong>PALASH+</strong>
+                <span>
+                    AI-Powered Vernacular Pedagogy
+                </span>
+            </div>
+
+            <span>
+                Hindi → Santhali • Offline First • AI Assisted
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div id="toast"
+     class="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Done
+    </span>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
