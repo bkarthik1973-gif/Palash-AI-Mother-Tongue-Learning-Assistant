@@ -1,12 +1,12 @@
 # Palash-AI-Mother-Tongue-Learning-Assistant
 AI-powered offline-first learning assistant for Hindi–Santali mother-tongue primary education, enabling translation, speech interaction, personalised learning, and classroom analytics.
-# 🌱 PALASH — AI-Powered Mother-Tongue Learning Assistant
+#  PALASH — AI-Powered Mother-Tongue Learning Assistant
 
 > An AI-powered offline-first educational platform that bridges the Hindi–Santali language gap in primary education through translation, speech interaction, bilingual learning content, assessments, and personalised remedial learning.
 
 ---
 
-## 🏆 Smart India Hackathon 2026
+##  Smart India Hackathon 2026
 
 **Problem Domain:** Software / Smart Education
 
@@ -16,9 +16,9 @@ AI-powered offline-first learning assistant for Hindi–Santali mother-tongue pr
 
 PALASH is designed to support teachers and primary-school students in multilingual and low-connectivity educational environments by providing a dedicated language intelligence and learning-support layer.
 
----
 
-## 🎯 Problem
+
+##  Problem
 
 Many primary-school children in tribal communities learn more effectively in their mother tongue, while educational content and classroom instruction may primarily be available in Hindi.
 
